@@ -1,0 +1,12 @@
+{
+  "name": "Tabor3 Donation Button",
+  "description": "يضيف زر للتبرع بعد إتمام عملية الشراء في صفحة الشكر.",
+  "version": "1.0.0",
+  "type": "storefront",
+  "extensions": [
+    {
+      "target": "checkout.thank_you",
+      "src": "https://tabor3.com/embed.js"
+    }
+  ]
+}
