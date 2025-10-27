@@ -2,23 +2,17 @@
   "version": 2,
   "name": "tabor3-donation-widget",
   "builds": [
-    {
-      "src": "embed.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "manifest.json",
-      "use": "@vercel/static"
-    }
+    { "src": "**", "use": "@vercel/static" }
   ],
   "routes": [
     {
       "src": "/(embed\\.js|manifest\\.json)",
       "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/javascript; charset=utf-8"
+        "Access-Control-Allow-Origin": "*"
       },
       "dest": "/$1"
-    }
+    },
+    { "src": "/", "dest": "/donation.html" },
+    { "src": "/donate", "dest": "/donation.html" }
   ]
 }
