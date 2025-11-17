@@ -6,7 +6,7 @@
   "extensions": [
     {
       "target": "checkout.thank_you",
-      "src": "https://tabor3.com/embed.js"
+      "src": "https://zid-one.vercel.app/embed.js"
     }
   ]
 }

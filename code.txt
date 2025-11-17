@@ -1,0 +1,107 @@
+The following is a digest of the repository "zid".
+This digest is designed to be easily parsed by Large Language Models.
+
+--- SUMMARY ---
+Repository: zid
+Files Analyzed: 3
+Total Text Size: 2.14 KB
+Estimated Tokens (text only): ~700
+
+--- DIRECTORY STRUCTURE ---
+zid/
+├── embed.js
+├── manifest.json
+└── style.css
+
+
+--- FILE CONTENTS ---
+============================================================
+FILE: embed.js
+============================================================
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // نحاول نلاقي عنصر رئيسي في صفحة الشكر
+    const thankYouContainer =
+      document.querySelector('.thank-you-page') ||
+      document.querySelector('.order-summary') ||
+      document.body;
+
+    if (!thankYouContainer) return;
+
+    // إنشاء عنصر الزر
+    const donateButton = document.createElement('button');
+    donateButton.innerText = 'تبرع بعد شرائك ❤️';
+    donateButton.style.cssText = `
+      display: block;
+      margin: 25px auto;
+      padding: 14px 28px;
+      background-color: #28a745;
+      color: white;
+      font-weight: 600;
+      font-size: 17px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    `;
+
+    donateButton.onmouseenter = () => donateButton.style.backgroundColor = '#23923b';
+    donateButton.onmouseleave = () => donateButton.style.backgroundColor = '#28a745';
+
+    // عند الضغط يفتح صفحة التبرع
+    donateButton.onclick = function() {
+      // ممكن تعدل اللينك ده لاحقًا لو عندك صفحة تبرع ديناميكية
+      window.open('https://tabor3.com/donate', '_blank');
+    };
+
+    // إضافة الزر للصفحة
+    thankYouContainer.appendChild(donateButton);
+  });
+})();
+
+
+============================================================
+FILE: manifest.json
+============================================================
+{
+  "name": "Tabor3 Donation Button",
+  "description": "يضيف زر للتبرع بعد إتمام عملية الشراء في صفحة الشكر.",
+  "version": "1.0.0",
+  "type": "storefront",
+  "extensions": [
+    {
+      "target": "checkout.thank_you",
+      "src": "https://tabor3.com/embed.js"
+    }
+  ]
+}
+
+
+============================================================
+FILE: style.css
+============================================================
+body {
+  font-family: system-ui;
+  text-align: center;
+  margin-top: 100px;
+  background: #f9fafb;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+button {
+  background: #00a86b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
